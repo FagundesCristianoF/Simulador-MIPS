@@ -20,14 +20,14 @@ class UiComponent(
         startButton = JButton()
 
         defaultCloseOperation = EXIT_ON_CLOSE
-        title = "Simulador MIPS"
+        title = "MIPS Simulator"
 
         jPanel?.border = BorderFactory.createLineBorder(Color(0, 0, 0))
 
-        fileButton?.text = "Arquivo"
+        fileButton?.text = "File"
         fileButton?.addActionListener { _ -> fileButtonClicked() }
 
-        startButton?.text = "Começar"
+        startButton?.text = "Start"
         startButton?.addActionListener { _ -> btnStartActionPerformed() }
 
         val jPanel1Layout = GroupLayout(jPanel)

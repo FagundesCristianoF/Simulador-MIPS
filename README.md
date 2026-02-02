@@ -1,7 +1,11 @@
-# Simulador MIPS
+# MIPS Simulator
 
-Sistema Java desenvolvido na matéria de **Organização e Arquitetura de Computadores** pelo curso **Engenharia de Computação - Instituto Federal do Sul de Minas Gerais Campus Poços de Caldas**
+Java system developed in the **Computer Organization and Architecture** course
+for the **Computer Engineering** program at the **Federal Institute of Southern
+Minas Gerais – Poços de Caldas Campus**.
 
-# Objetivo
+## Goal
 
-O programa tem o objetivo de simular um sistema com a Arquitetura MIPS, gerando os 5 (cinco) estágios do Pipeling, e gerando o código binário das instruções em Assembly inseridas pelo usuário
+This program simulates a system with the MIPS architecture, producing the five
+pipeline stages and generating the binary code for assembly instructions
+provided by the user.

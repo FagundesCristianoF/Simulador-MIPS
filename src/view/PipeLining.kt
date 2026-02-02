@@ -37,7 +37,7 @@ class PipeLining(private val processor: Processor) : JFrame() {
         closeButton = JButton()
 
         defaultCloseOperation = EXIT_ON_CLOSE
-        title = "Simulador MIPS"
+        title = "MIPS Simulator"
         isUndecorated = true
 
         panel?.border = BorderFactory.createLineBorder(Color(0, 0, 0))
@@ -45,7 +45,7 @@ class PipeLining(private val processor: Processor) : JFrame() {
         forwardingToggle?.text = "Forwarding"
         forwardingToggle?.addActionListener { evt -> forwardingActionClicked() }
 
-        nextButton?.text = "Próximo"
+        nextButton?.text = "Next"
         nextButton?.addActionListener { _ -> nextActionClicked() }
 
         busca?.columns = 20
@@ -68,15 +68,15 @@ class PipeLining(private val processor: Processor) : JFrame() {
         writeback?.rows = 5
         jScrollPane5?.setViewportView(writeback)
 
-        jLabel1?.text = "BUSCA DE OPERANDO"
+        jLabel1?.text = "Operand Fetch"
 
-        jLabel2?.text = "DECODIFICACAO DE OPERANDOS"
+        jLabel2?.text = "Operand Decode"
 
-        jLabel3?.text = "                     ULA"
+        jLabel3?.text = "                     ALU"
 
-        jLabel4?.text = "MEMORIA"
+        jLabel4?.text = "Memory"
 
-        jLabel5?.text = "WRITE BACK"
+        jLabel5?.text = "Write Back"
 
         jLabel6?.text = "Clock:"
 
@@ -84,7 +84,7 @@ class PipeLining(private val processor: Processor) : JFrame() {
 
         pcLabel?.text = " "
 
-        jLabel8?.text = "FORWARDING: "
+        jLabel8?.text = "Forwarding: "
 
         forwarding?.text = "  "
 
@@ -92,9 +92,9 @@ class PipeLining(private val processor: Processor) : JFrame() {
         registers?.rows = 5
         jScrollPane6?.setViewportView(registers)
 
-        jLabel9?.text = "REGISTRADORES"
+        jLabel9?.text = "Registers"
 
-        binaryButton?.text = "Gerar Binário"
+        binaryButton?.text = "Generate Binary"
         binaryButton?.addActionListener { _ -> binaryButtonClicked() }
 
         closeButton?.text = "X"

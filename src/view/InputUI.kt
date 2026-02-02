@@ -15,7 +15,7 @@ class InputUI(
         inputText = JTextField()
         jLabel1 =
             JLabel().apply {
-                text = "    Valor"
+                text = "    Value"
             }
         ok =
             JButton().apply {
