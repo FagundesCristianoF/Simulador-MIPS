@@ -301,7 +301,7 @@ class Processor(
         jump = true
         when (word.op) {
             "j" -> {
-                pc = word.offset
+                pc = word.jumpTarget
                 fetchDecode = Word.NOOP
                 operandFetch = Word.NOOP
             }

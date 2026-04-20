@@ -28,7 +28,7 @@ class MipsSimulator {
                 JOptionPane.showMessageDialog(null, "Error reading file: ${ex.message}")
                 return
             }
-            processor = Processor(instructions as ArrayList<String>, this)
+            processor = Processor(instructions, this)
             mainWindow.setProcessor(processor)
         } else {
             JOptionPane.showMessageDialog(null, "No valid input file selected.")
