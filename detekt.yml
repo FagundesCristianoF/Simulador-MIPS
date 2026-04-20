@@ -1,0 +1,24 @@
+complexity:
+  LongMethod:
+    threshold: 80
+  LongParameterList:
+    functionThreshold: 8
+  NestedBlockDepth:
+    threshold: 5
+  TooManyFunctions:
+    thresholdInClasses: 20
+
+style:
+  MagicNumber:
+    active: true
+    ignoreNumbers: ['-1', '0', '1', '2', '3', '4', '5', '8', '10', '16', '17', '26', '32', '34']
+  MaxLineLength:
+    maxLineLength: 120
+  WildcardImport:
+    active: true
+
+naming:
+  FunctionNaming:
+    active: true
+  VariableNaming:
+    active: true
