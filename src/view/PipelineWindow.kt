@@ -16,7 +16,9 @@ import javax.swing.JToggleButton
 import javax.swing.LayoutStyle
 import javax.swing.WindowConstants
 
-class PipelineWindow(private val processor: Processor) : JFrame() {
+class PipelineWindow(
+    private val processor: Processor,
+) : JFrame() {
     private lateinit var panel: JPanel
     private lateinit var forwardingToggle: JToggleButton
     private lateinit var nextButton: JButton
@@ -143,64 +145,65 @@ class PipelineWindow(private val processor: Processor) : JFrame() {
         val panelLayout = GroupLayout(panel)
         panel.layout = panelLayout
         panelLayout.setHorizontalGroup(
-            panelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            panelLayout
+                .createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addGroup(
-                    panelLayout.createSequentialGroup()
+                    panelLayout
+                        .createSequentialGroup()
                         .addGroup(
-                            panelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                            panelLayout
+                                .createParallelGroup(GroupLayout.Alignment.LEADING)
                                 .addGroup(
                                     GroupLayout.Alignment.TRAILING,
-                                    panelLayout.createSequentialGroup()
+                                    panelLayout
+                                        .createSequentialGroup()
                                         .addContainerGap()
                                         .addComponent(generateBinaryButton)
                                         .addPreferredGap(
                                             LayoutStyle.ComponentPlacement.RELATED,
                                             GroupLayout.DEFAULT_SIZE,
                                             Int.MAX_VALUE,
-                                        )
-                                        .addComponent(forwardingToggle)
+                                        ).addComponent(forwardingToggle)
                                         .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(nextButton)
-                                )
-                                .addGroup(
-                                    panelLayout.createSequentialGroup()
+                                        .addComponent(nextButton),
+                                ).addGroup(
+                                    panelLayout
+                                        .createSequentialGroup()
                                         .addGap(19, 19, 19)
                                         .addGroup(
-                                            panelLayout.createParallelGroup(
-                                                GroupLayout.Alignment.LEADING,
-                                                false,
-                                            )
-                                                .addComponent(
+                                            panelLayout
+                                                .createParallelGroup(
+                                                    GroupLayout.Alignment.LEADING,
+                                                    false,
+                                                ).addComponent(
                                                     labelFetch,
                                                     GroupLayout.DEFAULT_SIZE,
                                                     GroupLayout.DEFAULT_SIZE,
                                                     Int.MAX_VALUE,
-                                                )
-                                                .addComponent(scrollFetch)
-                                        )
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                                                ).addComponent(scrollFetch),
+                                        ).addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addGroup(
-                                            panelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                            panelLayout
+                                                .createParallelGroup(GroupLayout.Alignment.LEADING)
                                                 .addGroup(
-                                                    panelLayout.createSequentialGroup()
+                                                    panelLayout
+                                                        .createSequentialGroup()
                                                         .addComponent(
                                                             scrollDecode,
                                                             GroupLayout.PREFERRED_SIZE,
                                                             GroupLayout.DEFAULT_SIZE,
                                                             GroupLayout.PREFERRED_SIZE,
-                                                        )
-                                                        .addPreferredGap(
+                                                        ).addPreferredGap(
                                                             LayoutStyle.ComponentPlacement.UNRELATED,
-                                                        )
-                                                        .addComponent(
+                                                        ).addComponent(
                                                             scrollAlu,
                                                             GroupLayout.PREFERRED_SIZE,
                                                             GroupLayout.DEFAULT_SIZE,
                                                             GroupLayout.PREFERRED_SIZE,
-                                                        )
-                                                )
-                                                .addGroup(
-                                                    panelLayout.createSequentialGroup()
+                                                        ),
+                                                ).addGroup(
+                                                    panelLayout
+                                                        .createSequentialGroup()
                                                         .addComponent(labelDecode)
                                                         .addGap(31, 31, 31)
                                                         .addComponent(
@@ -208,275 +211,261 @@ class PipelineWindow(private val processor: Processor) : JFrame() {
                                                             GroupLayout.PREFERRED_SIZE,
                                                             166,
                                                             GroupLayout.PREFERRED_SIZE,
-                                                        )
-                                                )
-                                        )
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                                        ),
+                                                ),
+                                        ).addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(
-                                            panelLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                                            panelLayout
+                                                .createParallelGroup(GroupLayout.Alignment.TRAILING)
                                                 .addComponent(
                                                     scrollMemory,
                                                     GroupLayout.PREFERRED_SIZE,
                                                     GroupLayout.DEFAULT_SIZE,
                                                     GroupLayout.PREFERRED_SIZE,
-                                                )
-                                                .addComponent(
+                                                ).addComponent(
                                                     labelMemory,
                                                     GroupLayout.PREFERRED_SIZE,
                                                     112,
                                                     GroupLayout.PREFERRED_SIZE,
-                                                )
-                                        )
-                                        .addGroup(
-                                            panelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                                ),
+                                        ).addGroup(
+                                            panelLayout
+                                                .createParallelGroup(GroupLayout.Alignment.LEADING)
                                                 .addGroup(
-                                                    panelLayout.createSequentialGroup()
+                                                    panelLayout
+                                                        .createSequentialGroup()
                                                         .addPreferredGap(
                                                             LayoutStyle.ComponentPlacement.RELATED,
-                                                        )
-                                                        .addComponent(
+                                                        ).addComponent(
                                                             scrollWriteBack,
                                                             GroupLayout.PREFERRED_SIZE,
                                                             GroupLayout.DEFAULT_SIZE,
                                                             GroupLayout.PREFERRED_SIZE,
-                                                        )
-                                                )
-                                                .addGroup(
+                                                        ),
+                                                ).addGroup(
                                                     GroupLayout.Alignment.TRAILING,
-                                                    panelLayout.createSequentialGroup()
+                                                    panelLayout
+                                                        .createSequentialGroup()
                                                         .addGap(86, 86, 86)
                                                         .addComponent(labelWriteBack)
-                                                        .addGap(24, 24, 24)
-                                                )
-                                        )
-                                        .addGap(0, 40, Int.MAX_VALUE)
-                                )
-                                .addGroup(
-                                    panelLayout.createSequentialGroup()
+                                                        .addGap(24, 24, 24),
+                                                ),
+                                        ).addGap(0, 40, Int.MAX_VALUE),
+                                ).addGroup(
+                                    panelLayout
+                                        .createSequentialGroup()
                                         .addGap(23, 23, 23)
                                         .addGroup(
-                                            panelLayout.createParallelGroup(
-                                                GroupLayout.Alignment.TRAILING,
-                                            )
-                                                .addComponent(labelPc)
-                                                .addComponent(labelClock)
-                                        )
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                                            panelLayout
+                                                .createParallelGroup(
+                                                    GroupLayout.Alignment.TRAILING,
+                                                ).addComponent(labelPc)
+                                                .addComponent(labelClock),
+                                        ).addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addGroup(
-                                            panelLayout.createParallelGroup(
-                                                GroupLayout.Alignment.LEADING,
-                                                false,
-                                            )
-                                                .addComponent(
+                                            panelLayout
+                                                .createParallelGroup(
+                                                    GroupLayout.Alignment.LEADING,
+                                                    false,
+                                                ).addComponent(
                                                     labelClockValue,
                                                     GroupLayout.DEFAULT_SIZE,
                                                     GroupLayout.DEFAULT_SIZE,
                                                     Int.MAX_VALUE,
-                                                )
-                                                .addComponent(
+                                                ).addComponent(
                                                     labelPcValue,
                                                     GroupLayout.DEFAULT_SIZE,
                                                     25,
                                                     Int.MAX_VALUE,
-                                                )
-                                        )
-                                        .addPreferredGap(
+                                                ),
+                                        ).addPreferredGap(
                                             LayoutStyle.ComponentPlacement.RELATED,
                                             GroupLayout.DEFAULT_SIZE,
                                             Int.MAX_VALUE,
-                                        )
-                                        .addComponent(labelForwarding)
+                                        ).addComponent(labelForwarding)
                                         .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(
                                             labelForwardingValue,
                                             GroupLayout.PREFERRED_SIZE,
                                             33,
                                             GroupLayout.PREFERRED_SIZE,
-                                        )
-                                        .addGap(306, 306, 306)
-                                        .addComponent(closeButton)
-                                )
-                                .addGroup(
-                                    panelLayout.createSequentialGroup()
+                                        ).addGap(306, 306, 306)
+                                        .addComponent(closeButton),
+                                ).addGroup(
+                                    panelLayout
+                                        .createSequentialGroup()
                                         .addContainerGap()
-                                        .addComponent(scrollRegisters)
-                                )
-                        )
-                        .addContainerGap()
-                )
-                .addGroup(
-                    panelLayout.createSequentialGroup()
+                                        .addComponent(scrollRegisters),
+                                ),
+                        ).addContainerGap(),
+                ).addGroup(
+                    panelLayout
+                        .createSequentialGroup()
                         .addGap(28, 28, 28)
                         .addComponent(labelRegisters)
-                        .addContainerGap(GroupLayout.DEFAULT_SIZE, Int.MAX_VALUE)
-                )
+                        .addContainerGap(GroupLayout.DEFAULT_SIZE, Int.MAX_VALUE),
+                ),
         )
         panelLayout.setVerticalGroup(
-            panelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            panelLayout
+                .createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addGroup(
                     GroupLayout.Alignment.TRAILING,
-                    panelLayout.createSequentialGroup()
+                    panelLayout
+                        .createSequentialGroup()
                         .addContainerGap()
                         .addGroup(
-                            panelLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                            panelLayout
+                                .createParallelGroup(GroupLayout.Alignment.LEADING, false)
                                 .addGroup(
-                                    panelLayout.createSequentialGroup()
+                                    panelLayout
+                                        .createSequentialGroup()
                                         .addGroup(
-                                            panelLayout.createParallelGroup(
-                                                GroupLayout.Alignment.BASELINE,
-                                            )
-                                                .addComponent(labelForwarding)
-                                                .addComponent(labelForwardingValue)
-                                        )
-                                        .addPreferredGap(
+                                            panelLayout
+                                                .createParallelGroup(
+                                                    GroupLayout.Alignment.BASELINE,
+                                                ).addComponent(labelForwarding)
+                                                .addComponent(labelForwardingValue),
+                                        ).addPreferredGap(
                                             LayoutStyle.ComponentPlacement.RELATED,
                                             GroupLayout.DEFAULT_SIZE,
                                             Int.MAX_VALUE,
-                                        )
-                                        .addGroup(
-                                            panelLayout.createParallelGroup(
-                                                GroupLayout.Alignment.LEADING,
-                                            )
-                                                .addComponent(
+                                        ).addGroup(
+                                            panelLayout
+                                                .createParallelGroup(
+                                                    GroupLayout.Alignment.LEADING,
+                                                ).addComponent(
                                                     labelWriteBack,
                                                     GroupLayout.Alignment.TRAILING,
-                                                )
-                                                .addComponent(
+                                                ).addComponent(
                                                     labelMemory,
                                                     GroupLayout.Alignment.TRAILING,
-                                                )
-                                        )
-                                )
-                                .addGroup(
-                                    panelLayout.createSequentialGroup()
+                                                ),
+                                        ),
+                                ).addGroup(
+                                    panelLayout
+                                        .createSequentialGroup()
                                         .addGroup(
-                                            panelLayout.createParallelGroup(
-                                                GroupLayout.Alignment.LEADING,
-                                            )
-                                                .addGroup(
-                                                    panelLayout.createSequentialGroup()
+                                            panelLayout
+                                                .createParallelGroup(
+                                                    GroupLayout.Alignment.LEADING,
+                                                ).addGroup(
+                                                    panelLayout
+                                                        .createSequentialGroup()
                                                         .addGap(21, 21, 21)
                                                         .addGroup(
-                                                            panelLayout.createParallelGroup(
-                                                                GroupLayout.Alignment.BASELINE,
-                                                            )
-                                                                .addComponent(labelClock)
+                                                            panelLayout
+                                                                .createParallelGroup(
+                                                                    GroupLayout.Alignment.BASELINE,
+                                                                ).addComponent(labelClock)
                                                                 .addComponent(
                                                                     labelClockValue,
                                                                     GroupLayout.PREFERRED_SIZE,
                                                                     14,
                                                                     GroupLayout.PREFERRED_SIZE,
-                                                                )
-                                                        )
-                                                        .addGap(18, 18, 18)
+                                                                ),
+                                                        ).addGap(18, 18, 18)
                                                         .addGroup(
-                                                            panelLayout.createParallelGroup(
-                                                                GroupLayout.Alignment.BASELINE,
-                                                            )
-                                                                .addComponent(labelPc)
-                                                                .addComponent(labelPcValue)
-                                                        )
-                                                )
-                                                .addComponent(closeButton)
-                                        )
-                                        .addGap(107, 107, 107)
+                                                            panelLayout
+                                                                .createParallelGroup(
+                                                                    GroupLayout.Alignment.BASELINE,
+                                                                ).addComponent(labelPc)
+                                                                .addComponent(labelPcValue),
+                                                        ),
+                                                ).addComponent(closeButton),
+                                        ).addGap(107, 107, 107)
                                         .addGroup(
-                                            panelLayout.createParallelGroup(
-                                                GroupLayout.Alignment.BASELINE,
-                                            )
-                                                .addComponent(labelFetch)
+                                            panelLayout
+                                                .createParallelGroup(
+                                                    GroupLayout.Alignment.BASELINE,
+                                                ).addComponent(labelFetch)
                                                 .addComponent(labelDecode)
-                                                .addComponent(labelAlu)
-                                        )
-                                )
-                        )
-                        .addGap(18, 18, 18)
+                                                .addComponent(labelAlu),
+                                        ),
+                                ),
+                        ).addGap(18, 18, 18)
                         .addGroup(
-                            panelLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                            panelLayout
+                                .createParallelGroup(GroupLayout.Alignment.TRAILING)
                                 .addComponent(
                                     scrollFetch,
                                     GroupLayout.PREFERRED_SIZE,
                                     GroupLayout.DEFAULT_SIZE,
                                     GroupLayout.PREFERRED_SIZE,
-                                )
-                                .addComponent(
+                                ).addComponent(
                                     scrollDecode,
                                     GroupLayout.PREFERRED_SIZE,
                                     GroupLayout.DEFAULT_SIZE,
                                     GroupLayout.PREFERRED_SIZE,
-                                )
-                                .addComponent(
+                                ).addComponent(
                                     scrollAlu,
                                     GroupLayout.PREFERRED_SIZE,
                                     GroupLayout.DEFAULT_SIZE,
                                     GroupLayout.PREFERRED_SIZE,
-                                )
-                                .addComponent(
+                                ).addComponent(
                                     scrollMemory,
                                     GroupLayout.PREFERRED_SIZE,
                                     GroupLayout.DEFAULT_SIZE,
                                     GroupLayout.PREFERRED_SIZE,
-                                )
-                                .addComponent(
+                                ).addComponent(
                                     scrollWriteBack,
                                     GroupLayout.PREFERRED_SIZE,
                                     GroupLayout.DEFAULT_SIZE,
                                     GroupLayout.PREFERRED_SIZE,
-                                )
-                        )
-                        .addPreferredGap(
+                                ),
+                        ).addPreferredGap(
                             LayoutStyle.ComponentPlacement.RELATED,
                             80,
                             Int.MAX_VALUE,
-                        )
-                        .addComponent(labelRegisters)
+                        ).addComponent(labelRegisters)
                         .addGap(18, 18, 18)
                         .addComponent(
                             scrollRegisters,
                             GroupLayout.PREFERRED_SIZE,
                             58,
                             GroupLayout.PREFERRED_SIZE,
-                        )
-                        .addGap(18, 18, 18)
+                        ).addGap(18, 18, 18)
                         .addGroup(
-                            panelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                            panelLayout
+                                .createParallelGroup(GroupLayout.Alignment.BASELINE)
                                 .addComponent(forwardingToggle)
                                 .addComponent(nextButton)
-                                .addComponent(generateBinaryButton)
-                        )
-                        .addContainerGap()
-                )
+                                .addComponent(generateBinaryButton),
+                        ).addContainerGap(),
+                ),
         )
 
         val layout = GroupLayout(contentPane)
         contentPane.layout = layout
         layout.setHorizontalGroup(
-            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            layout
+                .createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addGroup(
-                    layout.createSequentialGroup()
+                    layout
+                        .createSequentialGroup()
                         .addContainerGap()
                         .addComponent(
                             panel,
                             GroupLayout.DEFAULT_SIZE,
                             GroupLayout.DEFAULT_SIZE,
                             Int.MAX_VALUE,
-                        )
-                        .addContainerGap()
-                )
+                        ).addContainerGap(),
+                ),
         )
         layout.setVerticalGroup(
-            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            layout
+                .createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addGroup(
-                    layout.createSequentialGroup()
+                    layout
+                        .createSequentialGroup()
                         .addContainerGap()
                         .addComponent(
                             panel,
                             GroupLayout.DEFAULT_SIZE,
                             GroupLayout.DEFAULT_SIZE,
                             Int.MAX_VALUE,
-                        )
-                        .addContainerGap()
-                )
+                        ).addContainerGap(),
+                ),
         )
 
         pack()

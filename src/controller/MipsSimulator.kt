@@ -1,12 +1,12 @@
 package controller
 
+import view.MainWindow
 import java.io.File
 import java.io.IOException
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import javax.swing.JFileChooser
 import javax.swing.JOptionPane
-import view.MainWindow
 
 class MipsSimulator {
     val instructions: MutableList<String> = mutableListOf()

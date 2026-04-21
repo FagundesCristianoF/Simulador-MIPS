@@ -16,7 +16,9 @@ import javax.swing.JPanel
 import javax.swing.LayoutStyle
 import javax.swing.WindowConstants
 
-class MainWindow(private val simulator: MipsSimulator) : JFrame() {
+class MainWindow(
+    private val simulator: MipsSimulator,
+) : JFrame() {
     private lateinit var processor: Processor
     private lateinit var pipelineWindow: PipelineWindow
     private lateinit var panel: JPanel
@@ -53,55 +55,60 @@ class MainWindow(private val simulator: MipsSimulator) : JFrame() {
         val panelLayout = GroupLayout(panel)
         panel.layout = panelLayout
         panelLayout.setHorizontalGroup(
-            panelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            panelLayout
+                .createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addGroup(
-                    panelLayout.createSequentialGroup()
+                    panelLayout
+                        .createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addComponent(fileButton)
                         .addPreferredGap(
                             LayoutStyle.ComponentPlacement.RELATED,
                             323,
                             Int.MAX_VALUE,
-                        )
-                        .addComponent(startButton)
-                        .addContainerGap()
-                )
+                        ).addComponent(startButton)
+                        .addContainerGap(),
+                ),
         )
         panelLayout.setVerticalGroup(
-            panelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            panelLayout
+                .createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addGroup(
-                    panelLayout.createSequentialGroup()
+                    panelLayout
+                        .createSequentialGroup()
                         .addContainerGap(259, Int.MAX_VALUE)
                         .addGroup(
-                            panelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                            panelLayout
+                                .createParallelGroup(GroupLayout.Alignment.BASELINE)
                                 .addComponent(fileButton)
-                                .addComponent(startButton)
-                        )
-                        .addGap(22, 22, 22)
-                )
+                                .addComponent(startButton),
+                        ).addGap(22, 22, 22),
+                ),
         )
 
         val layout = GroupLayout(contentPane)
         contentPane.layout = layout
         layout.setHorizontalGroup(
-            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            layout
+                .createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addComponent(
                     panel,
                     GroupLayout.Alignment.TRAILING,
                     GroupLayout.DEFAULT_SIZE,
                     GroupLayout.DEFAULT_SIZE,
                     Int.MAX_VALUE,
-                )
+                ),
         )
         layout.setVerticalGroup(
-            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            layout
+                .createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addComponent(
                     panel,
                     GroupLayout.Alignment.TRAILING,
                     GroupLayout.DEFAULT_SIZE,
                     GroupLayout.DEFAULT_SIZE,
                     Int.MAX_VALUE,
-                )
+                ),
         )
 
         accessibleContext.accessibleDescription = ""

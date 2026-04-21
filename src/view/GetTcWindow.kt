@@ -36,12 +36,15 @@ class GetTcWindow(
         val layout = GroupLayout(contentPane)
         contentPane.layout = layout
         layout.setHorizontalGroup(
-            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            layout
+                .createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addGroup(
-                    layout.createSequentialGroup()
+                    layout
+                        .createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addGroup(
-                            layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                            layout
+                                .createParallelGroup(GroupLayout.Alignment.LEADING, false)
                                 .addComponent(okButton)
                                 .addComponent(valueField, GroupLayout.DEFAULT_SIZE, 50, Int.MAX_VALUE)
                                 .addComponent(
@@ -49,15 +52,16 @@ class GetTcWindow(
                                     GroupLayout.DEFAULT_SIZE,
                                     GroupLayout.DEFAULT_SIZE,
                                     Int.MAX_VALUE,
-                                )
-                        )
-                        .addContainerGap(48, Int.MAX_VALUE)
-                )
+                                ),
+                        ).addContainerGap(48, Int.MAX_VALUE),
+                ),
         )
         layout.setVerticalGroup(
-            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            layout
+                .createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addGroup(
-                    layout.createSequentialGroup()
+                    layout
+                        .createSequentialGroup()
                         .addContainerGap()
                         .addComponent(valueLabel)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
@@ -66,11 +70,10 @@ class GetTcWindow(
                             GroupLayout.PREFERRED_SIZE,
                             GroupLayout.DEFAULT_SIZE,
                             GroupLayout.PREFERRED_SIZE,
-                        )
-                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                        ).addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(okButton)
-                        .addContainerGap(GroupLayout.DEFAULT_SIZE, Int.MAX_VALUE)
-                )
+                        .addContainerGap(GroupLayout.DEFAULT_SIZE, Int.MAX_VALUE),
+                ),
         )
 
         pack()

@@ -97,10 +97,11 @@ class Processor(
         registers[word.reg3].inUse = false
     }
 
-    private fun registerSnapshot(): String = buildString {
-        append("\n")
-        registers.forEach { append("  ${it.value}") }
-    }
+    private fun registerSnapshot(): String =
+        buildString {
+            append("\n")
+            registers.forEach { append("  ${it.value}") }
+        }
 
     private fun fetchInstruction() {
         if (forwarding || fetch) {
@@ -244,13 +245,14 @@ class Processor(
     }
 
     private fun executeRType(word: Word) {
-        val result = when (word.op) {
-            "add" -> registers[word.reg2].value + registers[word.reg3].value
-            "sub" -> registers[word.reg2].value - registers[word.reg3].value
-            "mult" -> registers[word.reg2].value * registers[word.reg3].value
-            "div" -> registers[word.reg2].value / registers[word.reg3].value
-            else -> return
-        }
+        val result =
+            when (word.op) {
+                "add" -> registers[word.reg2].value + registers[word.reg3].value
+                "sub" -> registers[word.reg2].value - registers[word.reg3].value
+                "mult" -> registers[word.reg2].value * registers[word.reg3].value
+                "div" -> registers[word.reg2].value / registers[word.reg3].value
+                else -> return
+            }
         registers[word.reg1].value = result
     }
 
@@ -323,35 +325,57 @@ class Processor(
 
     private fun encodeRType(parts: Array<String>) {
         val op = "000000"
-        val rs = parts[2].substring(1).toInt().toString(2).padStart(5, '0')
-        val rt = parts[3].substring(1).toInt().toString(2).padStart(5, '0')
-        val rd = parts[1].substring(1).toInt().toString(2).padStart(5, '0')
+        val rs =
+            parts[2]
+                .substring(1)
+                .toInt()
+                .toString(2)
+                .padStart(5, '0')
+        val rt =
+            parts[3]
+                .substring(1)
+                .toInt()
+                .toString(2)
+                .padStart(5, '0')
+        val rd =
+            parts[1]
+                .substring(1)
+                .toInt()
+                .toString(2)
+                .padStart(5, '0')
         val shamt = "00000"
-        val funct = when (parts[0]) {
-            "add" -> "100000"
-            "sub" -> "100010"
-            else -> ""
-        }
+        val funct =
+            when (parts[0]) {
+                "add" -> "100000"
+                "sub" -> "100010"
+                else -> ""
+            }
         binaryInstructions.add(StringBuilder("$op$rs$rt$rd$shamt$funct"))
     }
 
     private fun encodeJType2(parts: Array<String>) {
-        val word = when (parts[0]) {
-            "j" -> {
-                val target = parts[1].toInt().toString(2).padStart(26, '0')
-                StringBuilder("000010$target")
+        val word =
+            when (parts[0]) {
+                "j" -> {
+                    val target = parts[1].toInt().toString(2).padStart(26, '0')
+                    StringBuilder("000010$target")
+                }
+                "jr" -> {
+                    val reg = parts[1].toInt().toString(2).padStart(26, '0')
+                    StringBuilder("00000${reg}000000000000000001000")
+                }
+                else -> return
             }
-            "jr" -> {
-                val reg = parts[1].toInt().toString(2).padStart(26, '0')
-                StringBuilder("00000${reg}000000000000000001000")
-            }
-            else -> return
-        }
         binaryInstructions.add(word)
     }
 
     private fun encodeIType(parts: Array<String>) {
-        val r1 = parts[1].substring(1).toInt().toString(2).padStart(5, '0')
+        val r1 =
+            parts[1]
+                .substring(1)
+                .toInt()
+                .toString(2)
+                .padStart(5, '0')
         val split = parts[2].split("(").toTypedArray()
 
         val op: String
@@ -362,53 +386,85 @@ class Processor(
             "sw" -> {
                 op = "101011"
                 offset = split[0].toInt().toString(2).padStart(16, '0')
-                r2 = split[1].substring(1, split[1].length - 1).toInt().toString(2).padStart(5, '0')
+                r2 =
+                    split[1]
+                        .substring(1, split[1].length - 1)
+                        .toInt()
+                        .toString(2)
+                        .padStart(5, '0')
             }
             "lw" -> {
                 op = "100011"
                 offset = split[0].toInt().toString(2).padStart(16, '0')
-                r2 = split[1].substring(1, split[1].length - 1).toInt().toString(2).padStart(5, '0')
+                r2 =
+                    split[1]
+                        .substring(1, split[1].length - 1)
+                        .toInt()
+                        .toString(2)
+                        .padStart(5, '0')
             }
             "beq" -> {
                 op = "000100"
-                r2 = parts[2].substring(1).toInt().toString(2).padStart(5, '0')
+                r2 =
+                    parts[2]
+                        .substring(1)
+                        .toInt()
+                        .toString(2)
+                        .padStart(5, '0')
                 offset = parts[3].toInt().toString(2).padStart(16, '0')
             }
             "bne" -> {
                 op = "000101"
-                r2 = parts[2].substring(1).toInt().toString(2).padStart(5, '0')
+                r2 =
+                    parts[2]
+                        .substring(1)
+                        .toInt()
+                        .toString(2)
+                        .padStart(5, '0')
                 offset = parts[3].toInt().toString(2).padStart(16, '0')
             }
             "bltz" -> {
                 op = "000001"
-                r2 = parts[2].substring(1).toInt().toString(2).padStart(5, '0')
+                r2 =
+                    parts[2]
+                        .substring(1)
+                        .toInt()
+                        .toString(2)
+                        .padStart(5, '0')
                 offset = parts[3].toInt().toString(2).padStart(16, '0')
             }
             "bgtz" -> {
                 op = "000111"
-                r2 = parts[2].substring(1).toInt().toString(2).padStart(5, '0')
+                r2 =
+                    parts[2]
+                        .substring(1)
+                        .toInt()
+                        .toString(2)
+                        .padStart(5, '0')
                 offset = parts[3].toInt().toString(2).padStart(16, '0')
             }
             else -> return
         }
 
-        val word = if (parts[0] == "sw" || parts[0] == "lw") {
-            StringBuilder("$op$r2$r1$offset")
-        } else {
-            StringBuilder("$op$r1$r2$offset")
-        }
+        val word =
+            if (parts[0] == "sw" || parts[0] == "lw") {
+                StringBuilder("$op$r2$r1$offset")
+            } else {
+                StringBuilder("$op$r1$r2$offset")
+            }
         binaryInstructions.add(word)
     }
 
     private fun encodeDType(parts: Array<String>) {
-        val word = when (parts[0]) {
-            "noop" -> StringBuilder("00000000000000000000000000000000")
-            "get_tc" -> {
-                val addr = parts[1].toInt().toString(2).padStart(10, '0')
-                StringBuilder("111111${addr}0000000000000000")
+        val word =
+            when (parts[0]) {
+                "noop" -> StringBuilder("00000000000000000000000000000000")
+                "get_tc" -> {
+                    val addr = parts[1].toInt().toString(2).padStart(10, '0')
+                    StringBuilder("111111${addr}0000000000000000")
+                }
+                else -> return
             }
-            else -> return
-        }
         binaryInstructions.add(word)
     }
 }
