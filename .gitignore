@@ -1,0 +1,37 @@
+# Gradle
+.gradle/
+build/
+dist/
+
+# Kotlin/Java
+out/
+*.class
+
+# IDEs
+.idea/
+*.iml
+.vscode/
+nbproject/
+
+# OS
+.DS_Store
+
+# Build outputs
+release/
+*.aab
+*.apk
+*.ipa
+
+# Logs
+log/
+logs/
+*.log
+
+# Next.js
+.next/cache/
+
+# Pods
+iosApp/Pods/
+
+# ESP
+.esphome/build/
